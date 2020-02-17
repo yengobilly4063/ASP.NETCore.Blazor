@@ -1,0 +1,25 @@
+﻿@page "/"
+
+<h2>Movie List</h2>
+<hr />
+
+<MoviesList Movies="movies" />
+
+
+
+
+
+
+@code   {
+    public List<Movie> movies;
+
+    protected override void OnInitialized()
+    {
+        movies = new List<Movie>()
+        {
+            new Movie(){Title="The Avengers", ReleaseDate=new DateTime(2020, 1, 23)},
+            new Movie(){Title="Apider-Man: Home Coming", ReleaseDate=new DateTime(2009, 5, 15)},
+            new Movie(){Title="Moana", ReleaseDate=new DateTime(2010, 10, 21)},
+        };
+    }
+}

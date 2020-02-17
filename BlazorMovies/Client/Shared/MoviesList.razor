@@ -1,0 +1,30 @@
+﻿
+   
+
+
+ <p>Display Delete? <input type="checkbox" @bind="displayButtons" /></p>
+
+@if (Movies == null)
+{
+    <img src="/img/loading.gif" />
+}
+else if (Movies.Count == 0)
+{
+    <text>No movies records found.</text>
+}
+else
+{
+    @foreach (var movie in Movies)
+    {
+        <IndividualMovie Movie="movie" DisplayButtons="displayButtons"/>
+        <hr />
+    }
+
+}
+
+
+@code {
+    [Parameter] public List<Movie> Movies { get; set; }
+    bool displayButtons = false;
+
+   }
