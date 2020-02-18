@@ -1,9 +1,12 @@
 ﻿@page "/"
 
-<h2>Movie List</h2>
-<hr />
 
-<MoviesList Movies="movies" />
+<div>
+    <h2>Movies</h2>
+    <hr />
+    <MoviesList Movies="movies" />
+</div>
+<button class="btn btn-primary" @onclick="AddMovie">Add New Movie</button>
 
 
 
@@ -15,11 +18,17 @@
 
     protected override void OnInitialized()
     {
+
         movies = new List<Movie>()
         {
             new Movie(){Title="The Avengers", ReleaseDate=new DateTime(2020, 1, 23)},
             new Movie(){Title="Apider-Man: Home Coming", ReleaseDate=new DateTime(2009, 5, 15)},
             new Movie(){Title="Moana", ReleaseDate=new DateTime(2010, 10, 21)},
         };
+    }
+
+    void AddMovie()
+    {
+        movies.Add(new Movie() { Title = "Inception : Remambering", ReleaseDate = new DateTime(2001, 10, 18) });
     }
 }
