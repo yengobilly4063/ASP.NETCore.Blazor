@@ -1,5 +1,10 @@
 ﻿@page "/"
+@inject SingletonService singleton
+@inject IRepository repository
 
+<div>
+    <p>Singleton :: Current count: @singleton.Value</p>
+</div>
 
 <div>
     <h2>Movies</h2>
@@ -19,12 +24,7 @@
     protected override void OnInitialized()
     {
 
-        movies = new List<Movie>()
-        {
-            new Movie(){Title="The Avengers", ReleaseDate=new DateTime(2020, 1, 23)},
-            new Movie(){Title="Apider-Man: Home Coming", ReleaseDate=new DateTime(2009, 5, 15)},
-            new Movie(){Title="Moana", ReleaseDate=new DateTime(2010, 10, 21)},
-        };
+        movies = repository.GetMovies();
     }
 
     void AddMovie()
